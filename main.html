@@ -4,27 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>UDYAM'20</title>
 
     <!-- backtotop??????????????????????????????????????????? -->
 
 
 
     <!-- speaker????????? -->
-    <link rel="stylesheet" href="/Css/style (1).css">
-    <link rel="stylesheet" href="/Css/neontext.css">
-    <link rel="stylesheet" href="/Css/video.css">
-    <link rel="stylesheet" href="/Css/speaker.css">
+    <link rel="stylesheet" href="Css/style (1).css">
+    <link rel="stylesheet" href="Css/neontext.css">
+    <link rel="stylesheet" href="Css/video.css">
+    <link rel="stylesheet" href="Css/speaker.css">
     <!-- schedule -->
-    <link rel="stylesheet" href="/Css/main.css">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="/Javascript/jquery.waypoints.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="Css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="Javascript/jquery.waypoints.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-    <script src="/Javascript/main.js"></script>
+    <script src="Javascript/main.js"></script>
 
     <!-- events -->
 
@@ -49,7 +49,7 @@
             /* background: url(https://robertsspaceindustries.com/rsi/static/images/gridbg_glow.png),
         url(https://robertsspaceindustries.com/rsi/static/images/common/bg-stars-2560.jpg)
         repeat; */
-            background-image: url("/Assets/abstract2.jpg");
+            background-image: url("Assets/abstract2.jpg");
             /* background-color: rgb(182, 40, 40); */
             background-size: cover;
             /* background-repeat: no-repeat; */
@@ -171,14 +171,15 @@
     <!-- contactus????????????????????????? -->
 
     <!-- <title>CONTACT US</title> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-    <link href='//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet' />
+    <link href='https://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet' />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
@@ -191,36 +192,50 @@
 
     <section class="showcase">
         <div class="container-fluid  fullscreen-video-wrap">
-            <video autoplay muted id="video" onplay="disableScroll()" onpause="enableScroll()">
-                <source src="/Assets/udyam.mp4" type="video/mp4">
+            <video autoplay muted id="video">
                 Your browser does not support HTML5 video.
             </video>
 
-
+            <a class="semi-transparent-button with-border" href="#">Button</a>
 
             <script type='text/javascript'>
+                disableScroll();
 
                 var video = document.getElementsByTagName('video')[0];
-                video.onended = function (e) {
-                    console.log("video ended");
-                    var myVideo = document.getElementById("video");
-                    myVideo.pause();
+                var source = document.createElement('source');
+
+                source.setAttribute('src', 'Assets/Final_Intro_Part1.mp4');
+
+                video.appendChild(source);
+                video.play();
+
+                video.onended = function(e) {
+                  console.log("video ended");
+
+                  video.pause();
+                  enableScroll();
+
+                  source.setAttribute('src', 'Assets/Final_Intro_Part2.mp4'); 
+                  video.setAttribute("loop", "true");
+                  video.load();
+                  video.play();
                 };
 
-                function disableScroll() {
+
+                function disableScroll() { 
                     // Get the current page scroll position 
-                    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                    scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+                    scrollTop = window.pageYOffset || document.documentElement.scrollTop; 
+                    scrollLeft = window.pageXOffset || document.documentElement.scrollLeft, 
 
-                        // if any scroll is attempted,
-                        // set this to the previous value
-                        window.onscroll = function () {
-                            window.scrollTo(scrollLeft, scrollTop);
-                        };
-                }
+                    // if any scroll is attempted,
+                    // set this to the previous value
+                    window.onscroll = function() { 
+                        window.scrollTo(scrollLeft, scrollTop); 
+                    }; 
+                } 
 
-                function enableScroll() {
-                    window.onscroll = function () { };
+                function enableScroll() { 
+                    window.onscroll = function() {}; 
                 }
             </script>
 
@@ -236,16 +251,16 @@
 
     <a id="button"></a>
 
-    <div class="container containert">
+    <!-- <div class="container containert">
         <h1 data-text="CIFAR">events</h1>
 
-    </div>
-
+    </div> -->
+    <div class="heading">Events</div>
 
     <div class="row1">
         <div class="col-md-6 col-12 compis-desc">
             <div class="row">
-                <div class="col-md-5 col-6 pr-0"><img class="compis-logo" src="/Assets/mosaic.jpg" alt="">
+                <div class="col-md-5 col-6 pr-0"><img class="compis-logo" src="Assets/mosaic.jpg" alt="">
                 </div>
                 <div class="col-md-7 col-6 pl-0">
                     <div class="compis-content">
@@ -271,7 +286,7 @@
 
         <div class="col-md-6 col-12 compis-desc">
             <div class="row">
-                <div class="col-md-5 col-6 pr-0"><img class="compis-logo" src="/Assets/spybits.jpg" alt="">
+                <div class="col-md-5 col-6 pr-0"><img class="compis-logo" src="Assets/spybits.jpg" alt="">
                 </div>
                 <div class="col-md-7 col-6 pl-0">
                     <div class="compis-content">
@@ -290,7 +305,7 @@
         </div>
         <div class="col-md-6 col-12 compis-desc">
             <div class="row">
-                <div class="col-md-5 col-6 pr-0"><img class="compis-logo" src="/Assets/ichip.jpg" alt="">
+                <div class="col-md-5 col-6 pr-0"><img class="compis-logo" src="Assets/ichip.jpg" alt="">
                 </div>
                 <div class="col-md-7 col-6 pl-0">
                     <div class="compis-content">
@@ -320,7 +335,7 @@
         </div>
         <div class="col-md-6 col-12 compis-desc">
             <div class="row">
-                <div class="col-md-5 col-6 pr-0"><img class="compis-logo" src="/Assets/comm.jpg" alt="">
+                <div class="col-md-5 col-6 pr-0"><img class="compis-logo" src="Assets/comm.jpg" alt="">
                 </div>
                 <div class="col-md-7 col-6 pl-0">
                     <div class="compis-content">
@@ -350,7 +365,7 @@
         </div>
         <div class="col-md-6 col-12 compis-desc">
             <div class="row">
-                <div class="col-md-5 col-6 pr-0"><img class="compis-logo" src="/Assets/continum.jpg" alt="">
+                <div class="col-md-5 col-6 pr-0"><img class="compis-logo" src="Assets/continum.jpg" alt="">
                 </div>
                 <div class="col-md-7 col-6 pl-0">
                     <div class="compis-content">
@@ -381,7 +396,7 @@
         </div>
         <div class="col-md-6 col-12 compis-desc">
             <div class="row">
-                <div class="col-md-5 col-6 pr-0"><img class="compis-logo" src="/Assets/digisim.jpg" alt="">
+                <div class="col-md-5 col-6 pr-0"><img class="compis-logo" src="Assets/digisim.jpg" alt="">
                 </div>
                 <div class="col-md-7 col-6 pl-0">
                     <div class="compis-content">
@@ -410,7 +425,7 @@
         </div>
         <div class="col-md-6 col-12 compis-desc">
             <div class="row">
-                <div class="col-md-5 col-6 pr-0"><img class="compis-logo" src="/Assets/xiota.jpg" alt="">
+                <div class="col-md-5 col-6 pr-0"><img class="compis-logo" src="Assets/xiota.jpg" alt="">
                 </div>
                 <div class="col-md-7 col-6 pl-0">
                     <div class="compis-content">
@@ -440,7 +455,7 @@
         </div>
         <div class="col-md-6 col-12 compis-desc">
             <div class="row">
-                <div class="col-md-5 col-6 pr-0"><img class="compis-logo" src="/Assets/cassandra.jpg"
+                <div class="col-md-5 col-6 pr-0"><img class="compis-logo" src="Assets/cassandra.jpg"
                         alt=""></div>
                 <div class="col-md-7 col-6 pl-0">
                     <div class="compis-content">
@@ -471,7 +486,7 @@
 
         <div class="col-md-6 col-12 compis-desc">
             <div class="row">
-                <div class="col-md-5 col-6 pr-0"><img class="compis-logo" src="/Assets/funkit.jpg" alt="">
+                <div class="col-md-5 col-6 pr-0"><img class="compis-logo" src="Assets/funkit.jpg" alt="">
                 </div>
                 <div class="col-md-7 col-6 pl-0">
                     <div class="compis-content">
@@ -507,7 +522,7 @@
 
             <div class="card">
                 <div class="card-liner">
-                    <figure><img src="/Assets/wallpaperflare.com_wallpaper (3).jpg" alt="" /> </figure>
+                    <figure><img src="Assets/wallpaperflare.com_wallpaper (3).jpg" alt="" /> </figure>
                     <div class="card--social">
                         <ul>
                             <li class="twitter"><a href="#0"><i class="fa fa-twitter"></i></a></li>
@@ -537,7 +552,7 @@
 
             <div class="card">
                 <div class="card-liner">
-                    <figure><img src="/Assets/wallpaperflare.com_wallpaper (3).jpg" alt="" /> </figure>
+                    <figure><img src="Assets/wallpaperflare.com_wallpaper (3).jpg" alt="" /> </figure>
                     <div class="card--social">
                         <ul>
                             <li class="twitter"><a href="#0"><i class="fa fa-twitter"></i></a></li>
@@ -567,7 +582,7 @@
 
             <div class="card">
                 <div class="card-liner">
-                    <figure><img src="/Assets/wallpaperflare.com_wallpaper (3).jpg" alt="" /> </figure>
+                    <figure><img src="Assets/wallpaperflare.com_wallpaper (3).jpg" alt="" /> </figure>
                     <div class="card--social">
                         <ul>
                             <li class="twitter"><a href="#0"><i class="fa fa-twitter"></i></a></li>
@@ -709,7 +724,7 @@
             <div class="mt-3 col-6 col-md-3  my-col id2">
                 <div class="card profile-card-5">
                     <div class="card-img-block">
-                        <img class="card-img-top" src="/Assets/dummy-img-2.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="Assets/dummy-img-2.jpg" alt="Card image cap">
                     </div>
                     <div class="card-body pt-0">
                         <h5 class="card-title text-center" style="color: wheat;">Florence Garza</h5>
@@ -721,7 +736,7 @@
             <div class="mt-3 col-6 col-md-3  my-col id2">
                 <div class="card profile-card-5">
                     <div class="card-img-block">
-                        <img class="card-img-top" src="/Assets/dummy-img-2.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="Assets/dummy-img-2.jpg" alt="Card image cap">
                     </div>
                     <div class="card-body pt-0">
                         <h5 class="card-title text-center" style="color: wheat;">Florence Garza</h5>
@@ -733,7 +748,7 @@
             <div class="mt-3 col-6 col-md-3  my-col id2">
                 <div class="card profile-card-5">
                     <div class="card-img-block">
-                        <img class="card-img-top" src="/Assets/dummy-img-2.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="Assets/dummy-img-2.jpg" alt="Card image cap">
                     </div>
                     <div class="card-body pt-0">
                         <h5 class="card-title text-center" style="color: wheat;">Florence Garza</h5>
@@ -745,7 +760,7 @@
             <div class="mt-3 col-6 col-md-3 my-col id2">
                 <div class="card profile-card-5">
                     <div class="card-img-block">
-                        <img class="card-img-top" src="/Assets/dummy-img-2.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="Assets/dummy-img-2.jpg" alt="Card image cap">
                     </div>
                     <div class="card-body pt-0">
                         <h5 class="card-title text-center" style="color: wheat;">Florence Garza</h5>
@@ -761,7 +776,7 @@
             <div class="col-12 col-sm-12 col-md-6">
                 <div class="imgs">
                     <div class="card-img-block col-6">
-                        <img class="card-img-top" src="/Assets/UDYAM_21-4.png" alt="Card image cap">
+                        <img class="card-img-top" src="Assets/UDYAM_21-4.png" alt="Card image cap">
                     </div>
                     <!-- <div class="card-img-block col-6">
                         <img class="card-img-top" src="../images/UDYAM_21.png" alt="Card image cap">
@@ -849,7 +864,7 @@
             <div class="row">
             <div class="col-sm-12"> -->
             <div class="about">
-                <img src="/Assets/logo.png" class="img-responsive center-block" alt="">
+                <img src="Assets/logo.png" class="img-responsive center-block" alt="">
 
                 <div class="social-media">
                     <ul class="list-inline">
