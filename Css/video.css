@@ -1,0 +1,35 @@
+
+
+
+  
+  
+    .fullscreen-video-wrap{
+   
+    position: absolute;
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    width: 100%; 
+    min-height: 100vh;
+    padding: 0 !important;
+    overflow: hidden;
+  }
+  .fullscreen-video-wrap video{
+    width: 100%;
+    min-height: 100%;
+  }
+  .texty{
+    font-size: 65px;
+    font-weight: 300;
+       
+  }
+  .showcase {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding: 0 20px;
+  }
+  
